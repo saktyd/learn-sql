@@ -14,10 +14,19 @@ const knex = require('knex')({
   }
 })
 
+//Get list of users
 app.get('/users', async (req, res) => {
   res.send({
     message: 'List of all users',
     users: await knex.select().from('users')
+  })
+})
+
+//Get user by id
+app.get('/users/:id', async (req, res) => {
+  res.send({
+    message: 'Get one user',
+    user: await knex('users').where('id', req.params.id)
   })
 })
 
