@@ -29,3 +29,9 @@ VALUES
 ('Dewantoro', 'dewantoro@gmail.com'),
 ('Impact', 'impactbyte@gmail.com');
 ```
+
+## Select Data
+
+```sql
+SELECT * FROM users;
+```
