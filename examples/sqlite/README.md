@@ -19,3 +19,13 @@ CREATE TABLE users (
   email VARCHAR(50)
 );
 ```
+
+## Insert Data
+
+```sql
+INSERT INTO users (name, email)
+VALUES
+('Sakti', 'sakti@gmail.com'),
+('Dewantoro', 'dewantoro@gmail.com'),
+('Impact', 'impactbyte@gmail.com');
+```
