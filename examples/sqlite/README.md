@@ -35,3 +35,10 @@ VALUES
 ```sql
 SELECT * FROM users;
 ```
+
+## Dump Data
+
+```
+.output dumpfilename.sql
+.dump
+```
