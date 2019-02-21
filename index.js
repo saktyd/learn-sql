@@ -1,14 +1,23 @@
-const mysql = require('mysql2')
+require('dotenv').config()
 
-// create the connection to database
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'test'
+const knex = require('knex')({
+  client: 'mysql2',
+  connection: {
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'yourusername',
+    password: process.env.DB_PASSWORD || 'yourpassword',
+    database: process.env.DB_DATABASE || 'yourdatabasename'
+  }
 })
 
-// simple query
-connection.query('SELECT * FROM users', function(err, results, fields) {
-  console.log(results) // results contains rows returned by server
-  console.log(fields) // fields contains extra meta data about results, if available
+// WAY 1
+const getUsers = async () => {
+  const rows = await knex.select().from('users')
+  console.log(rows)
+}
+getUsers()
+
+// WAY 2
+knex('users').then(rows => {
+  console.log(rows)
 })
