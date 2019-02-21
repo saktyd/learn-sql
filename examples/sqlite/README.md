@@ -1,20 +1,21 @@
 # Using SQLite
 
+## Table
+
 Table:
 
-| id  | name   | email            |
-| --- | ------ | ---------------- |
-| 1   | Haidar | haidar@gmail.com |
-| 2   | Hanif  | hanif@gmail.com  |
-| 3   | Impact | impact@gmail.com |
+| id  | name      | email               |
+| --- | --------- | ------------------- |
+| 1   | Sakti     | sakti@gmail.com     |
+| 2   | Dewantoro | dewantoro@gmail.com |
+| 3   | Impact    | impact@gmail.com    |
 
 SQL Create Table:
 
 ```sql
 CREATE TABLE users (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(50),
-  email VARCHAR(50),
-  PRIMARY KEY(id)
+  email VARCHAR(50)
 );
 ```
