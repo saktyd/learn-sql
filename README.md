@@ -2,5 +2,5 @@
 
 Learn SQL with:
 
--SQLlite
--MySQL
+- SQLlite
+- MySQL
