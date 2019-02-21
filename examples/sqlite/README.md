@@ -1,5 +1,18 @@
 # Using SQLite
 
+## INSTALLATION
+
+```sh
+brew install mysql
+sudo apt isntall mysql-server
+```
+
+## SETUP
+
+```sh
+
+```
+
 ## Table
 
 Table:
