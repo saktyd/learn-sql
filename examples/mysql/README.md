@@ -80,6 +80,6 @@ SELECT * FROM users;
 ## Dump Data
 
 ```
-.output dumpfilename.sql
-.dump
+cd examples/mysql
+mysqldump -u root -p --databases mytasks > mytasks-dump.sql
 ```
