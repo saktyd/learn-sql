@@ -30,6 +30,16 @@ app.get('/users/:id', async (req, res) => {
   })
 })
 
+//Delete user by id
+app.delete('/users/:id', async (req, res) => {
+  res.send({
+    message: 'One user has been deleted',
+    user: await knex('users')
+      .where('id', req.params.id)
+      .del()
+  })
+})
+
 app.listen(port, () => {
   console.log(`Express app is listening on localhost:${port}`)
 })
