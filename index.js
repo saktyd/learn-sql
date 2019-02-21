@@ -14,6 +14,13 @@ const knex = require('knex')({
   }
 })
 
+app.get('/users', async (req, res) => {
+  res.send({
+    message: 'List of all users',
+    users: await knex.select().from('users')
+  })
+})
+
 app.listen(port, () => {
   console.log(`Express app is listening on localhost:${port}`)
 })
