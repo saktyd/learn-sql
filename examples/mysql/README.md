@@ -1,5 +1,46 @@
 # Using SQLite
 
+## INSTALLATION
+
+```sh
+brew install mysql
+sudo apt isntall mysql-server
+```
+
+## SETUP
+
+```sh
+mysql_secure_installation
+```
+
+## RUN
+
+```sh
+mysql -u root -p
+```
+
+## CREATE DATABASE
+
+```sql
+CREATE DATABASE mytasks;
+```
+
+Output:
+
+```txt
+Query OK, 1 row affected (0.01 sec)
+```
+
+```sql
+USE mytasks;
+```
+
+Output:
+
+```txt
+Database changed
+```
+
 ## Table
 
 Table:
@@ -14,7 +55,7 @@ SQL Create Table:
 
 ```sql
 CREATE TABLE users (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(50),
   email VARCHAR(50)
 );

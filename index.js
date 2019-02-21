@@ -1,38 +1,14 @@
-require('dotenv').config()
+const mysql = require('mysql2')
 
-const express = require('express')
-const sqlite = require('sqlite')
-
-const app = express()
-const port = process.env.PORT || 8000
-const dbPromise = sqlite.open(process.env.DB_PATH, { Promise })
-
-app.get('/users', async (req, res) => {
-  const db = await dbPromise
-  const user = await db.all(`SELECT * FROM users `)
-
-  res.send({
-    message: 'Get all user',
-    users: user
-  })
+// create the connection to database
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  database: 'test'
 })
 
-app.get('/users/:id', async (req, res) => {
-  const db = await dbPromise
-  const user = await db.all(`SELECT * FROM users WHERE id = ${req.params.id}`)
-
-  if (user) {
-    res.send({
-      message: 'Get one user',
-      user: user
-    })
-  } else {
-    res.send({
-      message: 'Failed to get one user'
-    })
-  }
-})
-
-app.listen(port, () => {
-  console.log(`Express app is listening on localhost:${port}`)
+// simple query
+connection.query('SELECT * FROM users', function(err, results, fields) {
+  console.log(results) // results contains rows returned by server
+  console.log(fields) // fields contains extra meta data about results, if available
 })
